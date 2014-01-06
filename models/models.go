@@ -17,7 +17,7 @@ type Rectangle struct {
 	h gl.Float
 }
 
-func CreateRectangle(x float32, y float32, w float32, h float32) (rectangle *Rectangle) {
+func NewRectangle(x float32, y float32, w float32, h float32) (rectangle *Rectangle) {
 	return &Rectangle{gl.Float(x), gl.Float(y), gl.Float(w), gl.Float(h),}
 }
 

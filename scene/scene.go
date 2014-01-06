@@ -15,7 +15,7 @@ func Create(width int, height int) (scene *Scene) {
 	scene = &Scene{
 		width: width,
 		height: height,
-		rectangle: models.CreateRectangle(-0.5, -0.5, 1.0, 1.0),
+		rectangle: models.NewRectangle(-0.5, -0.5, 1.0, 1.0),
 	}
 
 	return scene
