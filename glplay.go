@@ -1,8 +1,8 @@
 package main
 
 import (
-	gl "github.com/chsc/gogl/gl21"
-	"github.com/jteeuwen/glfw"
+	"github.com/go-gl/gl"
+	glfw "github.com/go-gl/glfw3"
 	"github.com/dmelani/glplay/scene"
 )
 
@@ -16,20 +16,23 @@ func main() {
 	glfw.Init()
 	defer glfw.Terminate()
 
-	glfw.OpenWindowHint(glfw.WindowNoResize, 1)
+	glfw.WindowHint(glfw.DepthBits, 16)
 
-	glfw.OpenWindow(Width, Height, 0, 0, 0, 0, 16, 0, glfw.Windowed)
-	defer glfw.CloseWindow()
+	window, err := glfw.CreateWindow(Width, Height, Title, nil, nil);
+	if err != nil {
+		panic(err)
+	}
 
-	glfw.SetSwapInterval(1)
-	glfw.SetWindowTitle(Title)
+	window.MakeContextCurrent()
+	glfw.SwapInterval(1)
 
 	gl.Init()
 	s := scene.Create(Width, Height)
 	s.Init()
 
-	for glfw.WindowParam(glfw.Opened) == 1 {
+	for !window.ShouldClose() {
 		s.Render()
-		glfw.SwapBuffers()
+		window.SwapBuffers()
+		glfw.PollEvents()
 	}
 }

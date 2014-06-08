@@ -1,7 +1,7 @@
 package models
 
 import (
-	gl "github.com/chsc/gogl/gl21"
+	"github.com/go-gl/gl"
 )
 
 /*
@@ -11,14 +11,14 @@ type Model interface {
 */
 
 type Rectangle struct {
-	x gl.Float
-	y gl.Float
-	w gl.Float
-	h gl.Float
+	x float32
+	y float32
+	w float32
+	h float32
 }
 
 func NewRectangle(x float32, y float32, w float32, h float32) (rectangle *Rectangle) {
-	return &Rectangle{gl.Float(x), gl.Float(y), gl.Float(w), gl.Float(h),}
+	return &Rectangle{x, y, w, h,}
 }
 
 func (r *Rectangle) Render() {

@@ -1,7 +1,7 @@
 package scene
 
 import (
-	gl "github.com/chsc/gogl/gl21"
+	"github.com/go-gl/gl"
 	"github.com/dmelani/glplay/models"
 )
 
@@ -24,7 +24,7 @@ func Create(width int, height int) (scene *Scene) {
 func (s *Scene) Init() {
 	gl.ClearColor(0.0, 0.0, 0.0, 0.0)
 
-	gl.Viewport(0, 0, gl.Sizei(s.width), gl.Sizei(s.height))
+	gl.Viewport(0, 0, s.width, s.height)
 	gl.MatrixMode(gl.PROJECTION)
 	gl.LoadIdentity()
 	gl.Ortho(-1, 1, -1, 1, -1, 1)
