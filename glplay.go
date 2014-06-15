@@ -1,14 +1,14 @@
 package main
 
 import (
+	"github.com/dmelani/glplay/scene"
 	"github.com/go-gl/gl"
 	glfw "github.com/go-gl/glfw3"
-	"github.com/dmelani/glplay/scene"
 )
 
 const (
-	Title = "Derp"
-	Width = 800
+	Title  = "Derp"
+	Width  = 800
 	Height = 600
 )
 
@@ -18,7 +18,7 @@ func main() {
 
 	glfw.WindowHint(glfw.DepthBits, 16)
 
-	window, err := glfw.CreateWindow(Width, Height, Title, nil, nil);
+	window, err := glfw.CreateWindow(Width, Height, Title, nil, nil)
 	if err != nil {
 		panic(err)
 	}
